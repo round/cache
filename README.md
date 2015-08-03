@@ -37,3 +37,8 @@ cache/?<em>url=</em><strong>http://swapi.co/api/starships/9/?format=json</strong
 (URL encoded because the passed URLs themselves have parameters.)
 
 ### Todo
+
+- Investigate if there's a better way to match files other than `glob()`.
+- Set expires header to match expiry threshold.
+- Explore a flag for a 301 rediret to single local file versus loading it in with `file_get_contents()`.
+- Evaluate if there's a better way to cache combined and concatenated files.
