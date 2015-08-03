@@ -41,6 +41,7 @@ cache/?<em>url=</em><strong>http://swapi.co/api/starships/9/?format=json</strong
 
 - Set expires header to match expiry threshold.
 - Allow cache directory to be configurable.
+- Add `.cache` file extension for security.
 - Explore a flag for a 301 rediret to single local file versus loading it in with `file_get_contents()`.
 - Evaluate if there's a better way to cache combined and concatenated files.
 - Investigate if there's a better way to match files other than `glob()`.
