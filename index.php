@@ -60,7 +60,3 @@ function outputFile($path, $json) { //variable function for outputting file cont
 		$allData = array_merge_recursive($allData, $data); //push and merge JSON data to collector
 	} else { echo $output; } //if non JSON format thenprint file contents
 } //outputFile function
-
-//TODO: is it worth doing a 301 rediret to local file vs get contents?
-//TODO: is there better way to check cache directory for file?
-//TODO: set expires header?
