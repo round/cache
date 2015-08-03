@@ -1,6 +1,9 @@
 # Cache
 Lightweight external resource caching and concatenation. Particularly useful for decreasing external API requests (especially paginated JSON APIs) while having granular control over expiration. No setup required: automatically creates cache subdirectory and deletes expired files by checking expiration threshold with each request.
 
+### Usage
+Just drop the `index.php` file onto your server (preferably in its own directory), make sure permissions are set, and start making requests!
+
 ### Required Parameters
 _`url`_ A fully formed URL. This can take a comma-separated list of targets to cache and combine into one output (appended to one another). Pass complex addresses as [percent-encoded](http://meyerweb.com/eric/tools/dencoder/).
 
@@ -34,7 +37,7 @@ cache/?<em>url=</em><strong>http://swapi.co/api/starships/9/?format=json</strong
 </pre>
 (URL encoded because the passed URLs themselves have parameters.)
 
-#### Bypass caching:
+#### Bypass caching example:
 <pre>cache/?<em>url=</em><strong>http://swapi.co/api/films/1/?format=json</strong>&<em>expire=</em><strong>3600</strong><em>&direct</em></pre>
 
 ### Todo
