@@ -52,11 +52,11 @@ if ($json) { echo json_encode($allData); } //output JSON if flagged
 
 function writeFile($path, $input) { file_put_contents($path, $input); } //write file to server
 
-function outputFile($path, $json) { //variable function for outputting file contents or pushing JSOn to collector
+function outputFile($path, $json) { //variable function for outputting file contents or pushing JSON to collector
 	global $allData; //reference JSON collector
 	$output = file_get_contents($path); //read file from server
 	if ($json) { //if format is JSON
 		$data = json_decode($output, true); //convert object to JSON
 		$allData = array_merge_recursive($allData, $data); //push and merge JSON data to collector
-	} else { echo $output; } //if non JSON format thenprint file contents
+	} else { echo $output; } //if non-JSON format then print file contents
 } //outputFile function
