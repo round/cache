@@ -4,7 +4,7 @@ Dead simple external resource caching (and concatenation). No setup required: au
 Cache takes the following parameters:
 
 ### Required
-_`url`_ a fully formed URL (or comma separated list of urls to cache and output). Pass complex addresses as [percent-encoded](http://meyerweb.com/eric/tools/dencoder/).
+_`url`_ a fully formed URL. This can take a comma-separated list of targets to cache and merge into one output (appended to one another). Pass complex addresses as [percent-encoded](http://meyerweb.com/eric/tools/dencoder/).
 
 _`expire`_ time in seconds until cached file expires (3600 for one minute, 216000 for an hour, etc).
 
@@ -20,7 +20,7 @@ _`direct`_ flag to enable a 302 redirect to the target resource (for the first p
 
 _`errors`_  flag to include any errors in output. Useful for debugging.
 
-#### Example of multiple objects:
+#### Example of multiple combined objects:
 <pre>
 cache/?<em>url=</em><strong>http://swapi.co/api/starships/9/?format=json</strong><em>,
 </em><strong>http://swapi.co/api/people/4/?format=json</strong>
@@ -32,7 +32,7 @@ cache/?<em>url=</em><strong>http://swapi.co/api/starships/9/?format=json</strong
   cache/?<em>url=</em><strong>http%3A%2F%2Fswapi.co%2Fapi%2Fplanets%2F%3Fformat%3Djson%26page%3D1</strong><em>,</em>
   <strong>http%3A%2F%2Fswapi.co%2Fapi%2Fplanets%2F%3Fformat%3Djson%26page%3D2</strong><em>,</em>
   <strong>http%3A%2F%2Fswapi.co%2Fapi%2Fplanets%2F%3Fformat%3Djson%26page%3D3</strong>
-  <em>&json</em>
+  <em>&expire=</em><strong>518400</strong><em>&json</em>
 </pre>
 (URL encoded because the passed URLs themselves have parameters.)
 
