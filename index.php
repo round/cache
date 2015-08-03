@@ -9,6 +9,9 @@ $urls = explode(',', $url); //create array from passed urls
 $expire = $_GET['expire']; //get expiration threshold
 $allData = array(); //create JSON collector
 
+$cachedir = 'cache/'; //set cache directory name
+is_dir($cachedir) || mkdir($cachedir, 0777, true); //create cache directory if it does not exist
+
 if ($_GET['direct'] === '') { //check for caching bypass
 	//header('Location: ' . $urls[0], true, 301); //moved permanently
 	header('Location: ' . $urls[0], true, 302); //moved temporarily
@@ -21,7 +24,6 @@ if ($_GET['direct'] === '') { //check for caching bypass
 		$hash = md5($uri); //set filename
 		$time = time();  //set current time
 		$filename = $hash . '-' . $time; //filename with timestamp
-		$cachedir = 'cache/'; //set cache directory
 		$path = $cachedir . $filename; //set full path to cached file
 		$pattern = $cachedir . $hash . '*'; //filename search pattern
 		$matches = array_reverse(glob($pattern)); //reversed array of files that contain hash
@@ -61,3 +63,4 @@ function outputFile($path, $json) { //variable function for outputting file cont
 
 //TODO: is it worth doing a 301 rediret to local file vs get contents?
 //TODO: is there better way to check cache directory for file?
+//TODO: set expires header?
