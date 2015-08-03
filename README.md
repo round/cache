@@ -1,5 +1,5 @@
 # Cache
-Dead simple external resource caching (and concatenation). No setup required: automatically creates cache subdirectory and deletes expires files by checking expiration threshold with each request.
+Lightweight external resource caching and concatenation. Particularly useful for decreasing external API requests (especially paginated JSON APIs) while having granular control over expiration. No setup required: automatically creates cache subdirectory and deletes expired files by checking expiration threshold with each request.
 
 ### Required Parameters
 _`url`_ A fully formed URL. This can take a comma-separated list of targets to cache and combine into one output (appended to one another). Pass complex addresses as [percent-encoded](http://meyerweb.com/eric/tools/dencoder/).
