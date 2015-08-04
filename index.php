@@ -48,7 +48,7 @@ if ($_GET['direct'] === '') { //check for caching bypass
 	} //passed urls loop
 } //if no cache bypass loop
 
-if ($json) { echo json_encode($allData); } //output JSON if flagged
+if ($json) { echo str_replace('\\/', '/', json_encode($allData/*, JSON_UNESCAPED_SLASHES*/)); } //output JSON if flagged (with manual unescaping)
 
 function writeFile($path, $input) { file_put_contents($path, $input); } //write file to server
 
